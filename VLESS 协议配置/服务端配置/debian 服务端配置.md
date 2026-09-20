@@ -38,64 +38,64 @@ sing-box 配置内容：
 
 ```json
 {
-  "log": {
-    "level": "warn",
-    "timestamp": true
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "dns-google",
-        "type": "tls",
-        "server": "8.8.8.8"
-      }
-    ],
-    "strategy": "prefer_ipv6",
-    "final": "dns-google"
-  },
-  "inbounds": [
-    {
-      "type": "vless",
-      "tag": "vless-reality",
-      "listen": "::",
-      "listen_port": 443,
-      "users": [
-        {
-          "name": "<替换 name>",
-          "uuid": "<替换 uuid>",
-          "flow": "xtls-rprx-vision"
-        }
-      ],
-      "tls": {
-        "enabled": true,
-        "server_name": "www.apple.com",
-        "reality": {
-          "enabled": true,
-          "handshake": {
-            "server": "www.apple.com",
-            "server_port": 443
-          },
-          "private_key": "<替换 private_key>",
-          "short_id": [
-            "<替换 short_id>"
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "type": "direct",
-      "tag": "direct"
-    }
-  ],
-  "route": {
-    "default_domain_resolver": {
-      "server": "dns-google",
-      "strategy": "prefer_ipv6"
+    "log": {
+        "level": "warn",
+        "timestamp": true
     },
-    "final": "direct"
-  }
+    "dns": {
+        "servers": [
+            {
+                "tag": "dns-google",
+                "type": "tls",
+                "server": "8.8.8.8"
+            }
+        ],
+        "strategy": "prefer_ipv6",
+        "final": "dns-google"
+    },
+    "inbounds": [
+        {
+            "type": "vless",
+            "tag": "vless-reality",
+            "listen": "::",
+            "listen_port": 443,
+            "users": [
+                {
+                    "name": "<替换 name>",
+                    "uuid": "<替换 uuid>",
+                    "flow": "xtls-rprx-vision"
+                }
+            ],
+            "tls": {
+                "enabled": true,
+                "server_name": "www.apple.com",
+                "reality": {
+                    "enabled": true,
+                    "handshake": {
+                        "server": "www.apple.com",
+                        "server_port": 443
+                    },
+                    "private_key": "<替换 private_key>",
+                    "short_id": [
+                        "<替换 short_id>"
+                    ]
+                }
+            }
+        }
+    ],
+    "outbounds": [
+        {
+            "type": "direct",
+            "tag": "direct"
+        }
+    ],
+    "route": {
+        "default_domain_resolver": {
+            "server": "dns-google",
+            "strategy": "prefer_ipv6"
+        },
+        "final": "direct"
+    }
 }
 ```
 
